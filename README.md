@@ -113,21 +113,26 @@ Input data is **not included**. Place files in `data/` (notebooks) or next to th
 
 ### EED, 24 hours
 
-| Method | GRASP-BLS (EED) | GSA (EED) | GWO (EED) | PSO (EED) |
-|---|---|---|---|---|
-| Total cost (IDR) | 54,851,473.80 | 58,130,023.28 | 57,002,707.69 | 57,607,778.49 |
-| Total emissions (t) | 375,188.99 | 390,503.98 | 383,649.23 | 400,656.05 |
-| Time (s) | 21.9467 | 8.1540 | 2.8926 | 0.0212 |
+| Method | Total cost (IDR) | Total emissions (t) | Time (s) |
+|---|---|---|---|
+| GRASP-BLS (EED) | 54,851,473.80 | 375,188.99 | 21.9467 |
+| GSA (EED) | 58,130,023.28 | 390,503.98 | 8.1540 |
+| GWO (EED) | 57,002,707.69 | 383,649.23 | 2.8926 |
+| PSO (EED) | 57,607,778.49 | 400,656.05 | 0.0212 |
 
 The hybrid takes the 24-hour EED case at 54,851,473.80 IDR, 3.77% under the best baseline (GWO) and 5.64% under GSA, with the lowest emissions of the four at 375,188.99 t. The cost of that margin is time: 21.95 s against 0.02 s for PSO.
 
 ### EED with unit commitment, 24 hours
 
-| Method | GPC (EED-UC) | GRASP-BLS (EED-UC) | GSA (EED-UC) | GWO (EED-UC) | Jaya (EED-UC) | PSO (EED-UC) | WOA (EED-UC) |
-|---|---|---|---|---|---|---|---|
-| Total cost (IDR) | 55,604,277.16 | 52,039,278.43 | 56,669,115.23 | 57,720,240.35 | 55,876,412.45 | 56,547,762.93 | 56,749,866.77 |
-| Total emissions (t) | 378,363.99 | 346,443.29 | 360,080.02 | 352,496.84 | 369,814.74 | 364,331.07 | 353,106.54 |
-| Time (s) | 4.9908 | 19.0799 | 7.9304 | 2.9194 | 0.0256 | 0.0293 | 1.0566 |
+| Method | Total cost (IDR) | Total emissions (t) | Time (s) |
+|---|---|---|---|
+| GPC (EED-UC) | 55,604,277.16 | 378,363.99 | 4.9908 |
+| GRASP-BLS (EED-UC) | 52,039,278.43 | 346,443.29 | 19.0799 |
+| GSA (EED-UC) | 56,669,115.23 | 360,080.02 | 7.9304 |
+| GWO (EED-UC) | 57,720,240.35 | 352,496.84 | 2.9194 |
+| Jaya (EED-UC) | 55,876,412.45 | 369,814.74 | 0.0256 |
+| PSO (EED-UC) | 56,547,762.93 | 364,331.07 | 0.0293 |
+| WOA (EED-UC) | 56,749,866.77 | 353,106.54 | 1.0566 |
 
 Unit commitment widens the gap. GRASP-BLS reaches 52,039,278.43 IDR, 6.41% under the best baseline (GPC), 8.17% under GSA and 9.84% under GWO, again with the lowest emissions of the seven runs at 346,443.29 t. Time stays at 19.08 s, still well above every baseline.
 
