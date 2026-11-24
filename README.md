@@ -48,7 +48,7 @@ $$\sum_iP_i=P_D+P_L,\qquad P_i^{\min}\le P_i\le P_i^{\max},\qquad -D_i\le P_i^{t
 
 The committed set must be able to cover the demand:
 
-$$\mathcal{A}=\lbracei\mid u_i=1\rbrace,\qquad \sum_{i\in\mathcal{A}}P_i^{\max}\ge P_D,$$
+$$\mathcal{A}=\lbrace i\mid u_i=1\rbrace,\qquad \sum_{i\in\mathcal{A}}P_i^{\max}\ge P_D,$$
 
 where $u_i\in\lbrace0,1\rbrace$ is the on/off status. If no subset satisfies the inequality, all units are switched on as a fallback.
 
@@ -56,7 +56,7 @@ where $u_i\in\lbrace0,1\rbrace$ is the on/off status. If no subset satisfies the
 
 For each unit, a restricted candidate list is drawn from the feasible interval:
 
-$$\tau_i=\lbraceP_i\mid P_i^{\min}\le P_i\le P_i^{\max}\rbrace.$$
+$$\tau_i=\lbrace P_i\mid P_i^{\min}\le P_i\le P_i^{\max}\rbrace.$$
 
 In the implementation, 100 equispaced candidates are shuffled, the best fraction $\alpha_{\mathrm{RCL}}=0.3$ is kept, and the value that minimises the partial objective is accepted:
 
@@ -117,32 +117,29 @@ Input data is **not included**. Place files in `data/` (notebooks) or next to th
 
 ## Results
 
-### Figures
-
-![LCFD](figures/LCFD.png)
-
-![feasible_area](figures/feasible_area.png)
-
-![results_summary](figures/results_summary.png)
-
-### Result files
-
-- [`results/24-hours/GRASP-BLS (EED).xlsx`](results/24-hours/GRASP-BLS (EED).xlsx)
-- [`results/24-hours/GSA (EED).xlsx`](results/24-hours/GSA (EED).xlsx)
-- [`results/24-hours/GWO (EED).xlsx`](results/24-hours/GWO (EED).xlsx)
-- [`results/24-hours/PSO (EED).xlsx`](results/24-hours/PSO (EED).xlsx)
-- [`results/24-hours (UC)/GPC (EED-UC).xlsx`](results/24-hours (UC)/GPC (EED-UC).xlsx)
-- [`results/24-hours (UC)/GRASP-BLS (EED-UC).xlsx`](results/24-hours (UC)/GRASP-BLS (EED-UC).xlsx)
-- [`results/24-hours (UC)/GSA (EED-UC).xlsx`](results/24-hours (UC)/GSA (EED-UC).xlsx)
-- [`results/24-hours (UC)/GWO (EED-UC).xlsx`](results/24-hours (UC)/GWO (EED-UC).xlsx)
-- [`results/24-hours (UC)/Jaya (EED-UC).xlsx`](results/24-hours (UC)/Jaya (EED-UC).xlsx)
-- [`results/24-hours (UC)/PSO (EED-UC).xlsx`](results/24-hours (UC)/PSO (EED-UC).xlsx)
-- [`results/24-hours (UC)/WOA (EED-UC).xlsx`](results/24-hours (UC)/WOA (EED-UC).xlsx)
-- [`results/4-hours/GRASP-BLS (EED) [0.5,0.5].xlsx`](results/4-hours/GRASP-BLS (EED) [0.5,0.5].xlsx)
-- [`results/4-hours/GRASP-BLS (EED) [1,0].xlsx`](results/4-hours/GRASP-BLS (EED) [1,0].xlsx)
-- [`results/4-hours/GRASP-BLS (EED)[0,1].xlsx`](results/4-hours/GRASP-BLS (EED)[0,1].xlsx)
-- [`results/4-hours/GRASP-BLS (EED)[0.25,0.75].xlsx`](results/4-hours/GRASP-BLS (EED)[0.25,0.75].xlsx)
-- [`results/4-hours/GRASP-BLS (EED)[0.75,0.25].xlsx`](results/4-hours/GRASP-BLS (EED)[0.75,0.25].xlsx)
+| Metric | Value |
+|---|---|
+| Cost reduction | 5.64%-9.84% against GSA, PSO, GWO, WOA |
+| Emission reduction | 1.72%-4.91% |
+| Load levels | six 24-hour levels |
+| Scenarios | EED without and with unit commitment |
+| Weights | $w_1+w_2=1$, penalty $10^{6}$ |
+| Result file | [`results/24-hours/GRASP-BLS (EED).xlsx`](results/24-hours/GRASP-BLS (EED).xlsx) |
+| Result file | [`results/24-hours/GSA (EED).xlsx`](results/24-hours/GSA (EED).xlsx) |
+| Result file | [`results/24-hours/GWO (EED).xlsx`](results/24-hours/GWO (EED).xlsx) |
+| Result file | [`results/24-hours/PSO (EED).xlsx`](results/24-hours/PSO (EED).xlsx) |
+| Result file | [`results/24-hours (UC)/GPC (EED-UC).xlsx`](results/24-hours (UC)/GPC (EED-UC).xlsx) |
+| Result file | [`results/24-hours (UC)/GRASP-BLS (EED-UC).xlsx`](results/24-hours (UC)/GRASP-BLS (EED-UC).xlsx) |
+| Result file | [`results/24-hours (UC)/GSA (EED-UC).xlsx`](results/24-hours (UC)/GSA (EED-UC).xlsx) |
+| Result file | [`results/24-hours (UC)/GWO (EED-UC).xlsx`](results/24-hours (UC)/GWO (EED-UC).xlsx) |
+| Result file | [`results/24-hours (UC)/Jaya (EED-UC).xlsx`](results/24-hours (UC)/Jaya (EED-UC).xlsx) |
+| Result file | [`results/24-hours (UC)/PSO (EED-UC).xlsx`](results/24-hours (UC)/PSO (EED-UC).xlsx) |
+| Result file | [`results/24-hours (UC)/WOA (EED-UC).xlsx`](results/24-hours (UC)/WOA (EED-UC).xlsx) |
+| Result file | [`results/4-hours/GRASP-BLS (EED) [0.5,0.5].xlsx`](results/4-hours/GRASP-BLS (EED) [0.5,0.5].xlsx) |
+| Result file | [`results/4-hours/GRASP-BLS (EED) [1,0].xlsx`](results/4-hours/GRASP-BLS (EED) [1,0].xlsx) |
+| Result file | [`results/4-hours/GRASP-BLS (EED)[0,1].xlsx`](results/4-hours/GRASP-BLS (EED)[0,1].xlsx) |
+| Result file | [`results/4-hours/GRASP-BLS (EED)[0.25,0.75].xlsx`](results/4-hours/GRASP-BLS (EED)[0.25,0.75].xlsx) |
+| Result file | [`results/4-hours/GRASP-BLS (EED)[0.75,0.25].xlsx`](results/4-hours/GRASP-BLS (EED)[0.75,0.25].xlsx) |
 
 
 ## Requirements
