@@ -74,7 +74,7 @@ Starting from step $s=1$, a trial point is accepted only if it satisfies the Arm
 
 $$\mathbf{P}'=\mathbf{P}-s\mathbf{g},\qquad Z(\mathbf{P}')\le Z(\mathbf{P})-c_1s\Vert\mathbf{g}\Vert^2.$$
 
-If the condition fails, the step is shrunk by $s\leftarrow\beta_{\mathrm{BLS}}s$ with $c_1=0.3$ and $\beta_{\mathrm{BLS}}=0.8$, down to $s<10^{-3}$. The outer loop repeats the gradient step while the iterate keeps changing. The Armijo rule guarantees a decrease in the objective and prevents a full Newton-like step from jumping over the minimum.
+If the condition fails, the step is shrunk by $s\leftarrow\beta_{\mathrm{BLS}}s$ with $c_1=0.3$ and $\beta_{\mathrm{BLS}}=0.8$, down to $s\lt10^{-3}$. The outer loop repeats the gradient step while the iterate keeps changing. The Armijo rule guarantees a decrease in the objective and prevents a full Newton-like step from jumping over the minimum.
 
 ### Feasibility restoration
 
