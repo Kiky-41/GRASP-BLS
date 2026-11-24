@@ -48,19 +48,19 @@ $$\sum_iP_i=P_D+P_L,\qquad P_i^{\min}\le P_i\le P_i^{\max},\qquad -D_i\le P_i^{t
 
 The committed set must be able to cover the demand:
 
-$$\mathcal{A}=\{i\mid u_i=1\},\qquad \sum_{i\in\mathcal{A}}P_i^{\max}\ge P_D,$$
+$$\mathcal{A}=\lbracei\mid u_i=1\rbrace,\qquad \sum_{i\in\mathcal{A}}P_i^{\max}\ge P_D,$$
 
-where $u_i\in\{0,1\}$ is the on/off status. If no subset satisfies the inequality, all units are switched on as a fallback.
+where $u_i\in\lbrace0,1\rbrace$ is the on/off status. If no subset satisfies the inequality, all units are switched on as a fallback.
 
 ### Construction phase
 
 For each unit, a restricted candidate list is drawn from the feasible interval:
 
-$$\tau_i=\{P_i\mid P_i^{\min}\le P_i\le P_i^{\max}\}.$$
+$$\tau_i=\lbraceP_i\mid P_i^{\min}\le P_i\le P_i^{\max}\rbrace.$$
 
 In the implementation, 100 equispaced candidates are shuffled, the best fraction $\alpha_{\mathrm{RCL}}=0.3$ is kept, and the value that minimises the partial objective is accepted:
 
-$$P_i^{\text{best}}=\arg\min_{P_i\in\tau_i}Z\!\left([P_1,\dots,P_i,\dots,P_N]\right).$$
+$$P_i^{\text{best}}=\arg\min_{P_i\in\tau_i}Z\left([P_1,\dots,P_i,\dots,P_N]\right).$$
 
 The restricted list prevents the greedy step from always taking the same extreme value and gives the multi-start loop its diversification.
 
@@ -72,7 +72,7 @@ $$g_j=\frac{Z(\mathbf{P}+h\mathbf{e}_j)-Z(\mathbf{P}-h\mathbf{e}_j)}{2h}.$$
 
 Starting from step $s=1$, a trial point is accepted only if it satisfies the Armijo sufficient-decrease condition:
 
-$$\mathbf{P}'=\mathbf{P}-s\mathbf{g},\qquad Z(\mathbf{P}')\le Z(\mathbf{P})-c_1s\|\mathbf{g}\|^2.$$
+$$\mathbf{P}'=\mathbf{P}-s\mathbf{g},\qquad Z(\mathbf{P}')\le Z(\mathbf{P})-c_1s\Vert\mathbf{g}\Vert^2.$$
 
 If the condition fails, the step is shrunk by $s\leftarrow\beta_{\mathrm{BLS}}s$ with $c_1=0.3$ and $\beta_{\mathrm{BLS}}=0.8$, down to $s<10^{-3}$. The outer loop repeats the gradient step while the iterate keeps changing. The Armijo rule guarantees a decrease in the objective and prevents a full Newton-like step from jumping over the minimum.
 
@@ -80,7 +80,7 @@ If the condition fails, the step is shrunk by $s\leftarrow\beta_{\mathrm{BLS}}s$
 
 Ramp limits are enforced as
 
-$$P_i^{t}\leftarrow\min\!\left(P_i^{t-1}+U_i,\;\max\!\left(P_i^{t-1}-D_i,\;P_i^{t}\right)\right),$$
+$$P_i^{t}\leftarrow\min\left(P_i^{t-1}+U_i,\quad\max\left(P_i^{t-1}-D_i,\quadP_i^{t}\right)\right),$$
 
 then the residual balance error is spread equally over the units and clipped, iterating until $\left|\sum_iP_i-P_D\right|\le10^{-3}$ MW.
 
