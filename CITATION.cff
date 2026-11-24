@@ -1,0 +1,26 @@
+cff-version: 1.2.0
+message: "If you use this code or results, you must cite the paper below (CC BY 4.0 attribution requirement)."
+title: "GRASP-BLS: A Greedy Adaptive and Backtracking Framework for Reducing Emission Costs in Generator Scheduling"
+type: software
+license: CC-BY-4.0
+repository-code: "https://github.com/Kiky-41/GRASP-BLS"
+authors:
+  - family-names: "Raharjo"
+    given-names: "Jangkung"
+  - family-names: "Ikhsan"
+    given-names: "Rifki Rahman Nur"
+  - family-names: "Yustika"
+    given-names: "Lindiasari Martha"
+preferred-citation:
+  type: article
+  title: "A Greedy Adaptive and Backtracking Framework for Reducing Emission Costs in Generator Scheduling"
+  authors:
+    - family-names: "Raharjo"
+      given-names: "Jangkung"
+    - family-names: "Ikhsan"
+      given-names: "Rifki Rahman Nur"
+    - family-names: "Yustika"
+      given-names: "Lindiasari Martha"
+  journal: "International Journal of Technology"
+  year: 2025
+  doi: 10.14716/ijtech.v16i6.7588

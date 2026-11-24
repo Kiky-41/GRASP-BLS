@@ -47,3 +47,11 @@ Python. Python notebooks: `numpy`, `pandas`, `scipy`, `matplotlib` (as imported)
 ```bibtex
 @article{Raharjo_2025, title={A Greedy Adaptive and Backtracking Framework for Reducing Emission Costs in Generator Scheduling}, volume={16}, ISSN={2086-9614}, url={http://dx.doi.org/10.14716/ijtech.v16i6.7588}, DOI={10.14716/ijtech.v16i6.7588}, number={6}, journal={International Journal of Technology}, publisher={International Journal of Technology}, author={Raharjo, Jangkung and Ikhsan, Rifki R. N. and Yustika, Lindiasari M.}, year={2025}, month=Dec, pages={2005} }
 ```
+
+## License
+
+[![CC BY 4.0](https://img.shields.io/badge/License-CC%20BY%204.0-lightgrey.svg)](LICENSE)
+
+Licensed under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). **Attribution is required**: any use of this code, results, or figures, including in publications, must cite:
+
+> Jangkung Raharjo; Rifki Rahman Nur Ikhsan; Lindiasari Martha Yustika (2025). A Greedy Adaptive and Backtracking Framework for Reducing Emission Costs in Generator Scheduling. *International Journal of Technology*. https://doi.org/10.14716/ijtech.v16i6.7588
