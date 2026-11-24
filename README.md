@@ -140,26 +140,11 @@ The hybrid takes the 24-hour EED case at 54,851,473.80 IDR, 3.77% under the best
 | PSO (EED-UC) | 56,547,762.93 | 364,331.07 | 0.0293 |
 | WOA (EED-UC) | 56,749,866.77 | 353,106.54 | 1.0566 |
 
+Unit commitment widens the gap. GRASP-BLS reaches 52,039,278.43 IDR, 6.41% under the best baseline (GPC), 8.17% under GSA and 9.84% under GWO, again with the lowest emissions of the seven runs at 346,443.29 t. Time stays at 19.08 s, still well above every baseline.
+
 ### Result workbooks
 
-| File | Content |
-|---|---|
-| [`results/24-hours/GRASP-BLS (EED).xlsx`](results/24-hours/GRASP-BLS (EED).xlsx) | raw output |
-| [`results/24-hours/GSA (EED).xlsx`](results/24-hours/GSA (EED).xlsx) | raw output |
-| [`results/24-hours/GWO (EED).xlsx`](results/24-hours/GWO (EED).xlsx) | raw output |
-| [`results/24-hours/PSO (EED).xlsx`](results/24-hours/PSO (EED).xlsx) | raw output |
-| [`results/24-hours (UC)/GPC (EED-UC).xlsx`](results/24-hours (UC)/GPC (EED-UC).xlsx) | raw output |
-| [`results/24-hours (UC)/GRASP-BLS (EED-UC).xlsx`](results/24-hours (UC)/GRASP-BLS (EED-UC).xlsx) | raw output |
-| [`results/24-hours (UC)/GSA (EED-UC).xlsx`](results/24-hours (UC)/GSA (EED-UC).xlsx) | raw output |
-| [`results/24-hours (UC)/GWO (EED-UC).xlsx`](results/24-hours (UC)/GWO (EED-UC).xlsx) | raw output |
-| [`results/24-hours (UC)/Jaya (EED-UC).xlsx`](results/24-hours (UC)/Jaya (EED-UC).xlsx) | raw output |
-| [`results/24-hours (UC)/PSO (EED-UC).xlsx`](results/24-hours (UC)/PSO (EED-UC).xlsx) | raw output |
-| [`results/24-hours (UC)/WOA (EED-UC).xlsx`](results/24-hours (UC)/WOA (EED-UC).xlsx) | raw output |
-| [`results/4-hours/GRASP-BLS (EED) [0.5,0.5].xlsx`](results/4-hours/GRASP-BLS (EED) [0.5,0.5].xlsx) | raw output |
-| [`results/4-hours/GRASP-BLS (EED) [1,0].xlsx`](results/4-hours/GRASP-BLS (EED) [1,0].xlsx) | raw output |
-| [`results/4-hours/GRASP-BLS (EED)[0,1].xlsx`](results/4-hours/GRASP-BLS (EED)[0,1].xlsx) | raw output |
-| [`results/4-hours/GRASP-BLS (EED)[0.25,0.75].xlsx`](results/4-hours/GRASP-BLS (EED)[0.25,0.75].xlsx) | raw output |
-| [`results/4-hours/GRASP-BLS (EED)[0.75,0.25].xlsx`](results/4-hours/GRASP-BLS (EED)[0.75,0.25].xlsx) | raw output |
+Raw solver output: [`results/24-hours/GRASP-BLS (EED).xlsx`](results/24-hours/GRASP-BLS (EED).xlsx), [`results/24-hours/GSA (EED).xlsx`](results/24-hours/GSA (EED).xlsx), [`results/24-hours/GWO (EED).xlsx`](results/24-hours/GWO (EED).xlsx), [`results/24-hours/PSO (EED).xlsx`](results/24-hours/PSO (EED).xlsx), [`results/24-hours (UC)/GPC (EED-UC).xlsx`](results/24-hours (UC)/GPC (EED-UC).xlsx), [`results/24-hours (UC)/GRASP-BLS (EED-UC).xlsx`](results/24-hours (UC)/GRASP-BLS (EED-UC).xlsx), [`results/24-hours (UC)/GSA (EED-UC).xlsx`](results/24-hours (UC)/GSA (EED-UC).xlsx), [`results/24-hours (UC)/GWO (EED-UC).xlsx`](results/24-hours (UC)/GWO (EED-UC).xlsx), [`results/24-hours (UC)/Jaya (EED-UC).xlsx`](results/24-hours (UC)/Jaya (EED-UC).xlsx), [`results/24-hours (UC)/PSO (EED-UC).xlsx`](results/24-hours (UC)/PSO (EED-UC).xlsx), [`results/24-hours (UC)/WOA (EED-UC).xlsx`](results/24-hours (UC)/WOA (EED-UC).xlsx), [`results/4-hours/GRASP-BLS (EED) [0.5,0.5].xlsx`](results/4-hours/GRASP-BLS (EED) [0.5,0.5].xlsx), [`results/4-hours/GRASP-BLS (EED) [1,0].xlsx`](results/4-hours/GRASP-BLS (EED) [1,0].xlsx), [`results/4-hours/GRASP-BLS (EED)[0,1].xlsx`](results/4-hours/GRASP-BLS (EED)[0,1].xlsx), [`results/4-hours/GRASP-BLS (EED)[0.25,0.75].xlsx`](results/4-hours/GRASP-BLS (EED)[0.25,0.75].xlsx), [`results/4-hours/GRASP-BLS (EED)[0.75,0.25].xlsx`](results/4-hours/GRASP-BLS (EED)[0.75,0.25].xlsx).
 
 The workbooks hold the raw solver output behind the tables above: per-unit schedules, per-hour costs, constraint checks and run statistics.
 
