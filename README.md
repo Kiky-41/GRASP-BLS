@@ -15,45 +15,66 @@ The growing demand for efficient and environmentally sustainable power generatio
 
 ## Proposed method
 
-GRASP-BLS couples a greedy randomised adaptive search procedure (GRASP) with a backtracking line search (BLS). GRASP builds a good starting dispatch from restricted candidate lists; BLS then refines it along the numerical gradient with an Armijo acceptance rule. Unit commitment is handled separately by selecting a committed subset before dispatch.
+GRASP-BLS couples a greedy randomised adaptive search procedure (GRASP) with a backtracking line search (BLS). GRASP builds a good starting dispatch from restricted candidate lists; BLS then refines it along the numerical gradient with an Armijo acceptance rule. Unit commitment is handled before dispatch by selecting a committed subset that can cover the demand. Two scenarios are reported: EED without unit commitment, and EED with unit commitment for low-load hours.
 
 ### Economic–emission objective
 
-$$Z(\mathbf{P})=w_1\frac{\sum_{i=1}^{N}\left(a_i+b_iP_i+c_iP_i^2\right)}{\varepsilon}+w_2\frac{\sum_{i=1}^{N}\left(d_i+e_iP_i+f_iP_i^2\right)}{10^{6}}+\lambda\left|\sum_{i=1}^{N}P_i-P_D\right|$$
+The two objectives are combined into one weighted scalar. Cost is converted to USD with the exchange rate, emissions are scaled to a comparable magnitude, and the balance violation is penalised:
 
-with $\varepsilon=14{,}385$ IDR/USD, $w_1+w_2=1$, and penalty factor $\lambda=10^{6}$.
+$$Z(\mathbf{P})=w_1\frac{\sum_{i=1}^{N}\left(a_i+b_iP_i+c_iP_i^2\right)}{\varepsilon}+w_2\frac{\sum_{i=1}^{N}\left(d_i+e_iP_i+f_iP_i^2\right)}{10^{6}}+\lambda\left|\sum_{i=1}^{N}P_i-P_D\right|,$$
 
-Constraints:
+with $\varepsilon=14{,}385$ IDR/USD, $w_1+w_2=1$, and penalty factor $\lambda=10^{6}$. The weights set the trade-off: $w_1=1,w_2=0$ is pure economic dispatch, while larger $w_2$ buys emission reductions at a higher fuel cost.
 
-$$\sum_iP_i=P_D+P_L,\qquad P_i^{\min}\le P_i\le P_i^{\max},\qquad -D_i\le P_i^{t}-P_i^{t-1}\le U_i$$
+### Notation
 
-Unit commitment selects the committed set
+| Symbol | Meaning | Unit |
+|---|---|---|
+| $N$ | number of units | – |
+| $P_i$ | output of unit $i$ | MW |
+| $a_i,b_i,c_i$ | fuel-cost coefficients | IDR/h, IDR/MWh, IDR/MW²h |
+| $d_i,e_i,f_i$ | emission coefficients | kg/h, kg/MWh, kg/MW²h |
+| $w_1,w_2$ | cost and emission weights | – |
+| $\varepsilon$ | IDR/USD exchange rate | IDR/USD |
+| $\lambda$ | balance penalty factor | – |
+| $P_D$ | demand | MW |
+| $P_L$ | transmission loss | MW |
+| $\alpha_{\mathrm{RCL}}$ | fraction kept in the restricted candidate list | – |
+| $c_1,\beta_{\mathrm{BLS}}$ | Armijo coefficient and step-shrink factor | – |
+| $\mathcal{A}$ | committed unit set | – |
 
-$$\mathcal{A}=\{i\mid u_i=1\},\qquad \sum_{i\in\mathcal{A}}P_i^{\max}\ge P_D$$
+### Constraints
 
-with all units switched on as fallback if no subset satisfies the demand.
+$$\sum_iP_i=P_D+P_L,\qquad P_i^{\min}\le P_i\le P_i^{\max},\qquad -D_i\le P_i^{t}-P_i^{t-1}\le U_i.$$
+
+The committed set must be able to cover the demand:
+
+$$\mathcal{A}=\{i\mid u_i=1\},\qquad \sum_{i\in\mathcal{A}}P_i^{\max}\ge P_D,$$
+
+where $u_i\in\{0,1\}$ is the on/off status. If no subset satisfies the inequality, all units are switched on as a fallback.
 
 ### Construction phase
 
-For each unit, draw a restricted candidate list from the feasible interval,
+For each unit, a restricted candidate list is drawn from the feasible interval:
 
-$$\tau_i=\{P_i\mid P_i^{\min}\le P_i\le P_i^{\max}\},$$
+$$\tau_i=\{P_i\mid P_i^{\min}\le P_i\le P_i^{\max}\}.$$
 
-shuffle 100 equispaced candidates, keep the best fraction $\alpha=0.3$, and greedily accept the value minimising the partial objective:
+In the implementation, 100 equispaced candidates are shuffled, the best fraction $\alpha_{\mathrm{RCL}}=0.3$ is kept, and the value that minimises the partial objective is accepted:
 
-$$P_i^{\text{best}}=\arg\min_{P_i\in\tau_i}Z\!\left([P_1,\dots,P_i,\dots,P_N]\right)$$
+$$P_i^{\text{best}}=\arg\min_{P_i\in\tau_i}Z\!\left([P_1,\dots,P_i,\dots,P_N]\right).$$
+
+The restricted list prevents the greedy step from always taking the same extreme value and gives the multi-start loop its diversification.
 
 ### Backtracking line search
 
-Gradient by central differences with $h=10^{-8}$:
+The gradient is evaluated by central differences with step $h=10^{-8}$:
 
-$$g_j=\frac{Z(\mathbf{P}+h\mathbf{e}_j)-Z(\mathbf{P}-h\mathbf{e}_j)}{2h}$$
+$$g_j=\frac{Z(\mathbf{P}+h\mathbf{e}_j)-Z(\mathbf{P}-h\mathbf{e}_j)}{2h}.$$
 
-Start with step $s=1$ and accept the first step satisfying the Armijo condition:
+Starting from step $s=1$, a trial point is accepted only if it satisfies the Armijo sufficient-decrease condition:
 
-$$\mathbf{P}'=\mathbf{P}-s\mathbf{g},\qquad Z(\mathbf{P}')\le Z(\mathbf{P})-\alpha s\|\mathbf{g}\|^2$$
+$$\mathbf{P}'=\mathbf{P}-s\mathbf{g},\qquad Z(\mathbf{P}')\le Z(\mathbf{P})-c_1s\|\mathbf{g}\|^2.$$
 
-Otherwise shrink $s\leftarrow\beta s$ with $\alpha=0.3$, $\beta=0.8$, until $s<10^{-3}$. The outer loop repeats the gradient step while the iterate keeps changing.
+If the condition fails, the step is shrunk by $s\leftarrow\beta_{\mathrm{BLS}}s$ with $c_1=0.3$ and $\beta_{\mathrm{BLS}}=0.8$, down to $s<10^{-3}$. The outer loop repeats the gradient step while the iterate keeps changing. The Armijo rule guarantees a decrease in the objective and prevents a full Newton-like step from jumping over the minimum.
 
 ### Feasibility restoration
 
@@ -63,7 +84,9 @@ $$P_i^{t}\leftarrow\min\!\left(P_i^{t-1}+U_i,\;\max\!\left(P_i^{t-1}-D_i,\;P_i^{
 
 then the residual balance error is spread equally over the units and clipped, iterating until $\left|\sum_iP_i-P_D\right|\le10^{-3}$ MW.
 
-Reported over six 24-hour load levels: cost reductions of 5.64%–9.84% and emission reductions of 1.72%–4.91% against GSA, PSO, GWO, WOA and other baselines.
+### Reported result
+
+Across six 24-hour load levels the method reduces cost by 5.64%–9.84% and emissions by 1.72%–4.91% against GSA, PSO, GWO, WOA and other baselines.
 
 ## Contents
 
