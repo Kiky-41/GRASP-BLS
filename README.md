@@ -117,29 +117,47 @@ Input data is **not included**. Place files in `data/` (notebooks) or next to th
 
 ## Results
 
-| Metric | Value |
+### EED, 24 hours
+
+| Method | Total cost (IDR) | Total emissions (t) | Time (s) |
+|---|---|---|---|
+| GRASP-BLS (EED) | 54,851,473.80 | 375,188.99 | 21.9467 |
+| GSA (EED) | 58,130,023.28 | 390,503.98 | 8.1540 |
+| GWO (EED) | 57,002,707.69 | 383,649.23 | 2.8926 |
+| PSO (EED) | 57,607,778.49 | 400,656.05 | 0.0212 |
+
+### EED with unit commitment, 24 hours
+
+| Method | Total cost (IDR) | Total emissions (t) | Time (s) |
+|---|---|---|---|
+| GPC (EED-UC) | 55,604,277.16 | 378,363.99 | 4.9908 |
+| GRASP-BLS (EED-UC) | 52,039,278.43 | 346,443.29 | 19.0799 |
+| GSA (EED-UC) | 56,669,115.23 | 360,080.02 | 7.9304 |
+| GWO (EED-UC) | 57,720,240.35 | 352,496.84 | 2.9194 |
+| Jaya (EED-UC) | 55,876,412.45 | 369,814.74 | 0.0256 |
+| PSO (EED-UC) | 56,547,762.93 | 364,331.07 | 0.0293 |
+| WOA (EED-UC) | 56,749,866.77 | 353,106.54 | 1.0566 |
+
+### Result workbooks
+
+| File | Content |
 |---|---|
-| Cost reduction | 5.64%-9.84% against GSA, PSO, GWO, WOA |
-| Emission reduction | 1.72%-4.91% |
-| Load levels | six 24-hour levels |
-| Scenarios | EED without and with unit commitment |
-| Weights | $w_1+w_2=1$, penalty $10^{6}$ |
-| Result file | [`results/24-hours/GRASP-BLS (EED).xlsx`](results/24-hours/GRASP-BLS (EED).xlsx) |
-| Result file | [`results/24-hours/GSA (EED).xlsx`](results/24-hours/GSA (EED).xlsx) |
-| Result file | [`results/24-hours/GWO (EED).xlsx`](results/24-hours/GWO (EED).xlsx) |
-| Result file | [`results/24-hours/PSO (EED).xlsx`](results/24-hours/PSO (EED).xlsx) |
-| Result file | [`results/24-hours (UC)/GPC (EED-UC).xlsx`](results/24-hours (UC)/GPC (EED-UC).xlsx) |
-| Result file | [`results/24-hours (UC)/GRASP-BLS (EED-UC).xlsx`](results/24-hours (UC)/GRASP-BLS (EED-UC).xlsx) |
-| Result file | [`results/24-hours (UC)/GSA (EED-UC).xlsx`](results/24-hours (UC)/GSA (EED-UC).xlsx) |
-| Result file | [`results/24-hours (UC)/GWO (EED-UC).xlsx`](results/24-hours (UC)/GWO (EED-UC).xlsx) |
-| Result file | [`results/24-hours (UC)/Jaya (EED-UC).xlsx`](results/24-hours (UC)/Jaya (EED-UC).xlsx) |
-| Result file | [`results/24-hours (UC)/PSO (EED-UC).xlsx`](results/24-hours (UC)/PSO (EED-UC).xlsx) |
-| Result file | [`results/24-hours (UC)/WOA (EED-UC).xlsx`](results/24-hours (UC)/WOA (EED-UC).xlsx) |
-| Result file | [`results/4-hours/GRASP-BLS (EED) [0.5,0.5].xlsx`](results/4-hours/GRASP-BLS (EED) [0.5,0.5].xlsx) |
-| Result file | [`results/4-hours/GRASP-BLS (EED) [1,0].xlsx`](results/4-hours/GRASP-BLS (EED) [1,0].xlsx) |
-| Result file | [`results/4-hours/GRASP-BLS (EED)[0,1].xlsx`](results/4-hours/GRASP-BLS (EED)[0,1].xlsx) |
-| Result file | [`results/4-hours/GRASP-BLS (EED)[0.25,0.75].xlsx`](results/4-hours/GRASP-BLS (EED)[0.25,0.75].xlsx) |
-| Result file | [`results/4-hours/GRASP-BLS (EED)[0.75,0.25].xlsx`](results/4-hours/GRASP-BLS (EED)[0.75,0.25].xlsx) |
+| [`results/24-hours/GRASP-BLS (EED).xlsx`](results/24-hours/GRASP-BLS (EED).xlsx) | raw output |
+| [`results/24-hours/GSA (EED).xlsx`](results/24-hours/GSA (EED).xlsx) | raw output |
+| [`results/24-hours/GWO (EED).xlsx`](results/24-hours/GWO (EED).xlsx) | raw output |
+| [`results/24-hours/PSO (EED).xlsx`](results/24-hours/PSO (EED).xlsx) | raw output |
+| [`results/24-hours (UC)/GPC (EED-UC).xlsx`](results/24-hours (UC)/GPC (EED-UC).xlsx) | raw output |
+| [`results/24-hours (UC)/GRASP-BLS (EED-UC).xlsx`](results/24-hours (UC)/GRASP-BLS (EED-UC).xlsx) | raw output |
+| [`results/24-hours (UC)/GSA (EED-UC).xlsx`](results/24-hours (UC)/GSA (EED-UC).xlsx) | raw output |
+| [`results/24-hours (UC)/GWO (EED-UC).xlsx`](results/24-hours (UC)/GWO (EED-UC).xlsx) | raw output |
+| [`results/24-hours (UC)/Jaya (EED-UC).xlsx`](results/24-hours (UC)/Jaya (EED-UC).xlsx) | raw output |
+| [`results/24-hours (UC)/PSO (EED-UC).xlsx`](results/24-hours (UC)/PSO (EED-UC).xlsx) | raw output |
+| [`results/24-hours (UC)/WOA (EED-UC).xlsx`](results/24-hours (UC)/WOA (EED-UC).xlsx) | raw output |
+| [`results/4-hours/GRASP-BLS (EED) [0.5,0.5].xlsx`](results/4-hours/GRASP-BLS (EED) [0.5,0.5].xlsx) | raw output |
+| [`results/4-hours/GRASP-BLS (EED) [1,0].xlsx`](results/4-hours/GRASP-BLS (EED) [1,0].xlsx) | raw output |
+| [`results/4-hours/GRASP-BLS (EED)[0,1].xlsx`](results/4-hours/GRASP-BLS (EED)[0,1].xlsx) | raw output |
+| [`results/4-hours/GRASP-BLS (EED)[0.25,0.75].xlsx`](results/4-hours/GRASP-BLS (EED)[0.25,0.75].xlsx) | raw output |
+| [`results/4-hours/GRASP-BLS (EED)[0.75,0.25].xlsx`](results/4-hours/GRASP-BLS (EED)[0.75,0.25].xlsx) | raw output |
 
 
 ## Requirements
