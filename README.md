@@ -27,20 +27,14 @@ with $\varepsilon=14{,}385$ IDR/USD, $w_1+w_2=1$, and penalty factor $\lambda=10
 
 ### Notation
 
-| Symbol | Meaning | Unit |
-|---|---|---|
-| $N$ | number of units | – |
-| $P_i$ | output of unit $i$ | MW |
-| $a_i,b_i,c_i$ | fuel-cost coefficients | IDR/h, IDR/MWh, IDR/MW²h |
-| $d_i,e_i,f_i$ | emission coefficients | kg/h, kg/MWh, kg/MW²h |
-| $w_1,w_2$ | cost and emission weights | – |
-| $\varepsilon$ | IDR/USD exchange rate | IDR/USD |
-| $\lambda$ | balance penalty factor | – |
-| $P_D$ | demand | MW |
-| $P_L$ | transmission loss | MW |
-| $\alpha_{\mathrm{RCL}}$ | fraction kept in the restricted candidate list | – |
-| $c_1,\beta_{\mathrm{BLS}}$ | Armijo coefficient and step-shrink factor | – |
-| $\mathcal{A}$ | committed unit set | – |
+| Symbol | Meaning | Symbol | Meaning |
+|---|---|---|---|
+| $N$ | number of units | $\lambda$ | balance penalty factor |
+| $P_i$ | output of unit $i$ (MW) | $P_D$ | demand (MW) |
+| $a_i,b_i,c_i$ | fuel-cost coefficients (IDR/h, IDR/MWh, IDR/MW²h) | $P_L$ | transmission loss (MW) |
+| $d_i,e_i,f_i$ | emission coefficients (kg/h, kg/MWh, kg/MW²h) | $\alpha_{\mathrm{RCL}}$ | fraction kept in the restricted candidate list |
+| $w_1,w_2$ | cost and emission weights | $c_1,\beta_{\mathrm{BLS}}$ | Armijo coefficient and step-shrink factor |
+| $\varepsilon$ | IDR/USD exchange rate (IDR/USD) | $\mathcal{A}$ | committed unit set |
 
 ### Constraints
 
