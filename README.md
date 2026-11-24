@@ -126,6 +126,8 @@ Input data is **not included**. Place files in `data/` (notebooks) or next to th
 | GWO (EED) | 57,002,707.69 | 383,649.23 | 2.8926 |
 | PSO (EED) | 57,607,778.49 | 400,656.05 | 0.0212 |
 
+The hybrid takes the 24-hour EED case at 54,851,473.80 IDR, 3.77% under the best baseline (GWO) and 5.64% under GSA, with the lowest emissions of the four at 375,188.99 t. The cost of that margin is time: 21.95 s against 0.02 s for PSO.
+
 ### EED with unit commitment, 24 hours
 
 | Method | Total cost (IDR) | Total emissions (t) | Time (s) |
@@ -158,6 +160,8 @@ Input data is **not included**. Place files in `data/` (notebooks) or next to th
 | [`results/4-hours/GRASP-BLS (EED)[0,1].xlsx`](results/4-hours/GRASP-BLS (EED)[0,1].xlsx) | raw output |
 | [`results/4-hours/GRASP-BLS (EED)[0.25,0.75].xlsx`](results/4-hours/GRASP-BLS (EED)[0.25,0.75].xlsx) | raw output |
 | [`results/4-hours/GRASP-BLS (EED)[0.75,0.25].xlsx`](results/4-hours/GRASP-BLS (EED)[0.75,0.25].xlsx) | raw output |
+
+The workbooks hold the raw solver output behind the tables above: per-unit schedules, per-hour costs, constraint checks and run statistics.
 
 
 ## Requirements
