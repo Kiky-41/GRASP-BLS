@@ -80,7 +80,7 @@ If the condition fails, the step is shrunk by $s\leftarrow\beta_{\mathrm{BLS}}s$
 
 Ramp limits are enforced as
 
-$$P_i^{t}\leftarrow\min\left(P_i^{t-1}+U_i,\quad\max\left(P_i^{t-1}-D_i,\quadP_i^{t}\right)\right),$$
+$$P_i^{t}\leftarrow\min\left(P_i^{t-1}+U_i,\quad\max\left(P_i^{t-1}-D_i,\quad P_i^{t}\right)\right),$$
 
 then the residual balance error is spread equally over the units and clipped, iterating until $\left|\sum_iP_i-P_D\right|\le10^{-3}$ MW.
 
