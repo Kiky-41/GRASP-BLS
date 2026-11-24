@@ -114,6 +114,37 @@ Input data is **not included**. Place files in `data/` (notebooks) or next to th
 | `EED8u.xlsx` | Sheet1: `Unit`, `a`, `b`, `c`, `d`, `e`, `f`, `pmin`, `pmax`, `rampdown`, `rampup` |
 | `EED_demand8u.xlsx` | Sheet1: `load`, `load2`, `load3` |
 
+
+## Results
+
+### Figures
+
+![LCFD](figures/LCFD.png)
+
+![feasible_area](figures/feasible_area.png)
+
+![results_summary](figures/results_summary.png)
+
+### Result files
+
+- [`results/24-hours/GRASP-BLS (EED).xlsx`](results/24-hours/GRASP-BLS (EED).xlsx)
+- [`results/24-hours/GSA (EED).xlsx`](results/24-hours/GSA (EED).xlsx)
+- [`results/24-hours/GWO (EED).xlsx`](results/24-hours/GWO (EED).xlsx)
+- [`results/24-hours/PSO (EED).xlsx`](results/24-hours/PSO (EED).xlsx)
+- [`results/24-hours (UC)/GPC (EED-UC).xlsx`](results/24-hours (UC)/GPC (EED-UC).xlsx)
+- [`results/24-hours (UC)/GRASP-BLS (EED-UC).xlsx`](results/24-hours (UC)/GRASP-BLS (EED-UC).xlsx)
+- [`results/24-hours (UC)/GSA (EED-UC).xlsx`](results/24-hours (UC)/GSA (EED-UC).xlsx)
+- [`results/24-hours (UC)/GWO (EED-UC).xlsx`](results/24-hours (UC)/GWO (EED-UC).xlsx)
+- [`results/24-hours (UC)/Jaya (EED-UC).xlsx`](results/24-hours (UC)/Jaya (EED-UC).xlsx)
+- [`results/24-hours (UC)/PSO (EED-UC).xlsx`](results/24-hours (UC)/PSO (EED-UC).xlsx)
+- [`results/24-hours (UC)/WOA (EED-UC).xlsx`](results/24-hours (UC)/WOA (EED-UC).xlsx)
+- [`results/4-hours/GRASP-BLS (EED) [0.5,0.5].xlsx`](results/4-hours/GRASP-BLS (EED) [0.5,0.5].xlsx)
+- [`results/4-hours/GRASP-BLS (EED) [1,0].xlsx`](results/4-hours/GRASP-BLS (EED) [1,0].xlsx)
+- [`results/4-hours/GRASP-BLS (EED)[0,1].xlsx`](results/4-hours/GRASP-BLS (EED)[0,1].xlsx)
+- [`results/4-hours/GRASP-BLS (EED)[0.25,0.75].xlsx`](results/4-hours/GRASP-BLS (EED)[0.25,0.75].xlsx)
+- [`results/4-hours/GRASP-BLS (EED)[0.75,0.25].xlsx`](results/4-hours/GRASP-BLS (EED)[0.75,0.25].xlsx)
+
+
 ## Requirements
 
 Python. Python notebooks: `numpy`, `pandas`, `scipy`, `matplotlib` (as imported). MATLAB scripts: R2021a+.
